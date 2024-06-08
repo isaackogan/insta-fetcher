@@ -38,7 +38,7 @@ export class igApi {
 	}
 	private accountUserId = this.IgCookie.match(/sessionid=(.*?);/)?.[1].split('%')[0] || ''
 
-	private buildHeaders = (agent: string = config.android, options?: any) => {
+	public buildHeaders = (agent: string = config.android, options?: any) => {
 		return {
 			'user-agent': agent,
 			'cookie': `${this.IgCookie}`,
@@ -64,7 +64,7 @@ export class igApi {
 	 * @param agent 
 	 * @param AxiosOptions 
 	 */
-	private FetchIGAPI = (baseURL: string, url: string = '', agent: string = config.android, AxiosOptions: AxiosRequestConfig = {}): Promise<AxiosResponse> | undefined => {
+	public FetchIGAPI = (baseURL: string, url: string = '', agent: string = config.android, AxiosOptions: AxiosRequestConfig = {}): Promise<AxiosResponse> | undefined => {
 		try {
 			return axios({
 				baseURL,
